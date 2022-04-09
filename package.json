@@ -1,0 +1,30 @@
+{
+  "name": "bookclub-sequelize",
+  "version": "1.0.0",
+  "description": "Example bookclub app using Sequelize, Node, ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmrad/bookclub-sequelize.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juanmrad/bookclub-sequelize/issues"
+  },
+  "homepage": "https://github.com/juanmrad/bookclub-sequelize#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-es6-template-engine": "^2.2.3",
+    "express-session": "^1.17.2",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.18.0"
+  }
+}
