@@ -44,12 +44,29 @@ app.get('/dashboard', (req, res) => {
     return;
   }
 
-  res.render('dashboard', { locals: { username: req.session.user.username } });
+  let user = req.session.user;
+
+  models.Review.findAll({
+    where: {
+      user_id: user.id
+    },
+    include: models.Book
+  }).then(reviews => {
+    res.render('dashboard', { locals: { username: user.username, reviews: reviews } });
+  })
 })
+
+
 
 app.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/login');
+})
+
+app.get('/books', (req, res) => {
+  models.Book.findAll().then((books) => {
+    res.json(books);
+  })
 })
 
 app.post('/signup', (req, res) => {

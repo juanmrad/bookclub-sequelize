@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/juanmrad/bookclub-sequelize#readme",
   "dependencies": {
+    "@faker-js/faker": "^6.1.2",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
