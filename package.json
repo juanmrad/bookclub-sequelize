@@ -4,7 +4,8 @@
   "description": "Example bookclub app using Sequelize, Node, ES6",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/juanmrad/bookclub-sequelize/issues"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "homepage": "https://github.com/juanmrad/bookclub-sequelize#readme",
   "dependencies": {
