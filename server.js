@@ -1,14 +1,16 @@
 const express = require('express');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const models = require('./models');
 const bcrypt = require('bcrypt');
 const es6Rendered = require('express-es6-template-engine');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const cors = require('cors');
 
 const app = express();
 
 app.engine('html', es6Rendered);
+app.use(cors())
 app.set('views', 'views');
 app.set('view engine', 'html')
 
@@ -40,7 +42,7 @@ app.get('/signup', (req, res) => {
 
 app.get('/dashboard', (req, res) => {
   if (!req.session.user) {
-    res.redirect('/login');
+    res.json({ error: 'failed' });
     return;
   }
 
@@ -52,7 +54,7 @@ app.get('/dashboard', (req, res) => {
     },
     include: models.Book
   }).then(reviews => {
-    res.render('dashboard', { locals: { username: user.username, reviews: reviews } });
+    res.json({ username: user.username, reviews: reviews });
   })
 })
 
@@ -60,7 +62,7 @@ app.get('/dashboard', (req, res) => {
 
 app.get('/logout', (req, res) => {
   req.session.destroy();
-  res.redirect('/login');
+  res.json({ success: true });
 })
 
 app.get('/books', (req, res) => {
